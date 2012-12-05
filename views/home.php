@@ -1,0 +1,5 @@
+<?php
+
+// Take me home!
+
+?>
