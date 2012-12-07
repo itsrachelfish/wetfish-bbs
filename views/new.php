@@ -18,6 +18,7 @@ if($_POST)
 			foreach($_POST as $key => $value)
 			{
 				echo "$('input[name=\"$key\"]').val('".addslashes($value)."');";
+				echo "$('textarea[name=\"$key\"]').val('".addslashes($value)."');";
 			}
 			?>
 		});
@@ -26,6 +27,16 @@ if($_POST)
 	<?php
 	
 	include('../controllers/new.php');
+	$error = \NewThread\Controller::submit($_POST);
+	
+	if(empty($error))
+	{
+		$threadPath = preg_replace("{[^a-z0-9./-_()]+}i", "-", $_POST['path']);
+		
+		$content['heading'] = "Comment successful!";
+		echo "You will now be redirected to your post...";
+		echo "<meta http-equiv='refresh' content='2;url=/$threadPath'>";
+	}
 }
 
 if(empty($_POST) or $error)
