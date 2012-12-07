@@ -51,7 +51,7 @@ if(empty($_POST) or $error)
 			<input name='author'>
 		Thread Title: 
 			<input name='title'>
-		Thread Path: [<a href='#' title="This is the URL for your thread. Entering 'I love butts' here would create a new thread at bbs.wetfish.net/i-love-butts">?</a>]
+		Thread Path: [<a href='#' title="This is the URL for your thread. Entering 'I love butts' here would create a new thread at <?php echo $_SERVER['SERVER_NAME'] ?>/i-love-butts">?</a>]
 			<input name='path'>
 		Comment: 
 			<textarea name='body'></textarea>

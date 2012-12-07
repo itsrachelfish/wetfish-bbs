@@ -18,7 +18,7 @@ class Controller
 			$error = "You need a path!";
 
 		if(empty($threadTitle))
-			$error = "Where's the title friend?";
+			$error = "Where's the title, friend?";
 			
 		if(empty($threadAuthor))
 			$error = "You need a username :(";		
