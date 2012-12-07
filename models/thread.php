@@ -21,6 +21,18 @@ class Model
 		
 		return $threadID;
 	}
+	
+	function recent()
+	{
+		$recentQuery = mysql_query("Select * from `Threads` order by `time` desc limit 25");
+
+		while($thread = mysql_fetch_array($recentQuery))
+		{
+			$recentThreads[] = $thread;
+		}		
+		
+		return $recentThreads;
+	}
 }
 
 

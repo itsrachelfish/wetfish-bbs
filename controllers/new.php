@@ -42,7 +42,7 @@ class Controller
 			include('../models/comment.php');
 			
 			$threadID = \Thread\Model::create($threadPath, $threadTitle);
-			\Comment\Model::add($threadID);
+			\Comment\Model::add($threadID, $threadAuthor, $threadBody);
 		}
 		
 		return $error;
