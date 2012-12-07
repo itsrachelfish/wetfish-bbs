@@ -33,6 +33,16 @@ class Model
 		
 		return $recentThreads;
 	}
+	
+	function fetch($path)
+	{
+		$path = sanitize($path);
+		
+		$threadQuery = mysql_query("Select * from `Threads` where `path`='$path'");
+		$thread = mysql_fetch_array($threadQuery);
+		
+		return $thread;
+	}
 }
 
 
