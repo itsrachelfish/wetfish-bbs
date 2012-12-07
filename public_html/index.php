@@ -1,7 +1,10 @@
 <?php
 
+session_start();
 include('../shared/actionParser.php');
 include('../shared/pathParser.php');
+include('../shared/sanitize.php');
+require('../config.php');
 
 
 // Hey guys, I'm the index and the router.
