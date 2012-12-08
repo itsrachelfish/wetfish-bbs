@@ -8,24 +8,7 @@ $content['heading'] = "Create a new thread";
 ob_start();
 
 if($_POST)
-{
-	?>
-	
-	<script>
-		$(document).ready(function()
-		{
-			<?php
-			foreach($_POST as $key => $value)
-			{
-				echo "$('input[name=\"$key\"]').val('".addslashes($value)."');";
-				echo "$('textarea[name=\"$key\"]').val('".addslashes($value)."');";
-			}
-			?>
-		});
-	</script>
-	
-	<?php
-	
+{		
 	include('../controllers/new.php');
 	$error = \NewThread\Controller::submit($_POST);
 	
@@ -48,13 +31,13 @@ if(empty($_POST) or $error)
 
 	<form method='post'>
 		User Name: 
-			<input name='author'>
+			<input name='author' value='<?php echo $_POST['author'] ?>'>
 		Thread Title: 
-			<input name='title'>
+			<input name='title' value='<?php echo $_POST['title'] ?>'>
 		Thread Path: [<a href='#' title="This is the URL for your thread. Entering 'I love butts' here would create a new thread at <?php echo $_SERVER['SERVER_NAME'] ?>/i-love-butts">?</a>]
-			<input name='path'>
+			<input name='path' value='<?php echo $_POST['path'] ?>'>
 		Comment: 
-			<textarea name='body'></textarea>
+			<textarea name='body'><?php echo $_POST['body'] ?></textarea>
 			
 		<?php if(empty($_SESSION['bypassCaptcha'])) { echo recaptcha_get_html('6LdKvAoAAAAAAJL5OzO8-dIXE43MoCHQ-Tf7XFWI'); } ?>
 		
