@@ -1,6 +1,6 @@
 <?php
 
-include('../shared/recaptchalib.php');
+if(empty($_SESSION['bypassCaptcha'])) { include('../shared/recaptchalib.php'); }
 
 $content['title'] = "Make a new thread &mdash; " . $content['title'];
 $content['heading'] = "Create a new thread";

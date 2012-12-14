@@ -18,6 +18,23 @@ class Model
 			mysql_query("Insert into `Threads` values ('', NOW(), '$path', '$title')");
 			$threadID = mysql_insert_id();
 		}
+		else
+		{
+			mysql_query("Update `Threads` set `time`=NOW() where `id`='$threadID'");
+		}
+		
+		return $threadID;
+	}
+	
+	function update($path)
+	{
+		$path = preg_replace("{[^a-z0-9./-_()]+}i", "-", $path);
+		$path = sanitize($path);
+
+		$pathQuery = mysql_query("Select `id` from `Threads` where `path`='$path'");
+		list($threadID) = mysql_fetch_array($pathQuery);
+
+		mysql_query("Update `Threads` set `time`=NOW() where `id`='$threadID'");
 		
 		return $threadID;
 	}

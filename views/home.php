@@ -4,6 +4,8 @@ $content['heading'] = "Welcome home friends";
 
 ob_start();
 
+echo "<img src='/img/wetfish-bbs.gif'><br />";
+
 include('../models/thread.php');
 $recentThreads = \Thread\Model::recent();
 
