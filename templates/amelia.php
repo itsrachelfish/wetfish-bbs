@@ -1,1 +1,1 @@
-look at this cool file!!
+<?php //look at this cool file!! 
